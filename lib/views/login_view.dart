@@ -60,10 +60,7 @@ class _LoginViewState extends State<LoginView> {
                   email: email,
                   password: password,
                 );
-                print(userCredential);
-              } on FirebaseAuthException catch (e) {
-                print(e.code);
-              }
+              } on FirebaseAuthException catch (e) {}
             },
             child: const Text('Login'),
           ),
