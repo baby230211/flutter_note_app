@@ -210,7 +210,7 @@ class NotesService {
   Database _getDatabaseOrThrow() {
     final db = _db;
     if (db == null) {
-      throw DatabaseIsNotOpenException();
+      throw DatabaseIsNotOpen();
     } else {
       return db;
     }
@@ -244,7 +244,7 @@ class NotesService {
   Future<void> close() async {
     final db = _db;
     if (db == null) {
-      throw DatabaseIsNotOpenException();
+      throw DatabaseIsNotOpen();
     } else {
       await db.close();
       _db = null;
