@@ -11,7 +11,6 @@ import 'package:my_app/views/notes/create_update_note_view.dart';
 import 'package:my_app/views/notes/notes_view.dart';
 import 'package:my_app/views/register_view.dart';
 import 'package:my_app/views/verify_email_view.dart';
-import 'dart:developer' as devtools show log;
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,10 +24,6 @@ void main() {
       child: const HomePage(),
     ),
     routes: {
-      notesRoute: (context) => const NotesView(),
-      loginRoute: (context) => const LoginView(),
-      registerRoute: (context) => const RegisterView(),
-      verifyEmailRoute: (context) => const VerifyEmailView(),
       createOrUpdateNoteRoute: (context) => const CreateUpdateNoteView(),
     },
   ));
@@ -47,8 +42,8 @@ class HomePage extends StatelessWidget {
         return const VerifyEmailView();
       } else if (state is AuthStateLoggedOut) {
         return const LoginView();
-      } else if (state is AuthStateLoading) {
-        return const CircularProgressIndicator();
+      } else if (state is AuthStateRegistering) {
+        return const RegisterView();
       } else {
         return const Scaffold(
           body: CircularProgressIndicator(),
