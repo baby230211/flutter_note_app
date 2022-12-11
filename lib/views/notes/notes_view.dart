@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:developer' as devtools show log;
 
 import 'package:my_app/constants/routes.dart';
 import 'package:my_app/enums/menu_action.dart';
